@@ -10,7 +10,7 @@ const App = () => {
   /**
    * Create a variable here that holds the contract address after you deploy!
    */
-  const contractAddress = "0xbDfcdF9f388A467A4BF253DBC2a01055DF6f65fe"; 
+  const contractAddress = "0xEFBe5C3E3D3B13596D1c9ac28300cb1f197E43DD"; 
 
   /**
    * Create a variable here that references the abi content!
@@ -115,7 +115,7 @@ const App = () => {
         </div>
 
         <div className="bio">
-          I am farza and I worked on self-driving cars so that's pretty cool right? Connect your Ethereum wallet and wave at me!
+          I am Budi and I worked on self-driving cars so that's pretty cool right? Connect your Ethereum wallet and wave at me!
         </div>
 
         <button className="waveButton" onClick={wave}>
