@@ -10,7 +10,7 @@ const App = () => {
   /**
    * Create a variable here that holds the contract address after you deploy!
    */
-  const contractAddress = "0xEFBe5C3E3D3B13596D1c9ac28300cb1f197E43DD"; 
+  const contractAddress = "0x06E27Aee3B884a9671c5B8909c866d637DDA0f0C"; 
 
   /**
    * Create a variable here that references the abi content!
@@ -101,6 +101,8 @@ const App = () => {
   
           count = await wavePortalContract.getTotalWaves();
           console.log("Retrieved total wave count...", count.toNumber());    
+          console.log("Get all waves of account:", account);
+          getAllWaves();          
         } else {
           console.log("Ethereum object doesn't exist!");
         }
@@ -167,7 +169,11 @@ const App = () => {
           I am Budi and I worked on self-driving cars so that's pretty cool right? Connect your Ethereum wallet and wave at me!
         </div>
 
-        <button className="waveButton" onClick={wave}>
+        <button 
+          className="waveButton" 
+          onClick={wave}
+          disabled={isWaving}
+        >
           { 
             isWaving ? 
               'Waving...' : 
@@ -185,7 +191,7 @@ const App = () => {
               </button>              
             )
           : (
-              <button className="waveButton">Wallet Connected: {currentAccount}</button>
+              <button className="waveButton" disabled>Wallet Connected: {currentAccount}</button>
             )
         }
 
