@@ -41,7 +41,7 @@ const App = () => {
         setCurrentAccount(account);
         
         console.log("Get all waves of account:", account);
-        getAllWaves();
+        await getAllWaves();           
       } else {
         console.log("No authorized account found")
       }
@@ -101,8 +101,9 @@ const App = () => {
   
           count = await wavePortalContract.getTotalWaves();
           console.log("Retrieved total wave count...", count.toNumber());    
+          
           console.log("Get all waves of account:", account);
-          getAllWaves();          
+          await getAllWaves();          
         } else {
           console.log("Ethereum object doesn't exist!");
         }
@@ -146,6 +147,8 @@ const App = () => {
          * Store our data in React State
          */
         setAllWaves(wavesCleaned);
+
+        console.log("allWaves:", allWaves);         
       } else {
         console.log("Ethereum object doesn't exist!")
       }
