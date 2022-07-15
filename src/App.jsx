@@ -75,6 +75,11 @@ const App = () => {
   * Wave function
   */  
   const wave = async () => {
+      if (!currentAccount) {
+        alert('Connect your wallet first before wave');
+        return;
+      }
+    
       try {
         setIsWaving(true);
         const { ethereum } = window;
@@ -169,20 +174,8 @@ const App = () => {
         </div>
 
         <div className="bio">
-          I am Budi and I worked on self-driving cars so that's pretty cool right? Connect your Ethereum wallet and wave at me!
+          I am Budi. Connect your Ethereum wallet and wave at me! You have chance to get 0.0001 ETH gift :)
         </div>
-
-        <button 
-          className="waveButton" 
-          onClick={wave}
-          disabled={isWaving}
-        >
-          { 
-            isWaving ? 
-              'Waving...' : 
-              'Wave at Me'
-          }
-        </button>
 
         {/*
         * If there is no currentAccount render this button
@@ -197,6 +190,18 @@ const App = () => {
               <button className="waveButton" disabled>Wallet Connected: {currentAccount}</button>
             )
         }
+
+        <button 
+          className="waveButton" 
+          onClick={wave}
+          disabled={isWaving}
+        >
+          { 
+            isWaving ? 
+              'Waving...' : 
+              'Wave at Me'
+          }
+        </button>        
 
         {allWaves.map((wave, index) => {
           return (
