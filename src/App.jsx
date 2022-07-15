@@ -5,6 +5,7 @@ import abi from "./utils/WavePortal.json";
 
 const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
+  const [isWaving, setIsWaving] = useState(false);  
 
   /**
    * Create a variable here that holds the contract address after you deploy!
@@ -67,6 +68,7 @@ const App = () => {
   */  
   const wave = async () => {
       try {
+        setIsWaving(true);
         const { ethereum } = window;
   
         if (ethereum) {
@@ -96,6 +98,8 @@ const App = () => {
         }
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsWaving(false);        
       }
   }    
 
@@ -115,7 +119,11 @@ const App = () => {
         </div>
 
         <button className="waveButton" onClick={wave}>
-          Wave at Me
+          { 
+            isWaving ? 
+              'Waving...' : 
+              'Wave at Me'
+          }
         </button>
 
         {/*
